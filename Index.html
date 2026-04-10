@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamentos de Electrónica Analógica</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background-color:#f4f4f4;
+line-height:1.6;
+}
+
+/* barra superior */
+header{
+background:white;
+padding:15px 40px;
+display:flex;
+justify-content:flex-end;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+header a{
+text-decoration:none;
+color:#3366ff;
+font-weight:bold;
+font-size:16px;
+}
+
+header a:hover{
+text-decoration:underline;
+}
+
+/* contenedor principal */
+.container{
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+color:#333;
+}
+
+h2{
+color:#444;
+margin-top:30px;
+}
+
+p{
+text-align:justify;
+}
+
+img{
+display:block;
+margin:auto;
+margin-top:15px;
+}
+
+.formula{
+background:#eef;
+padding:10px;
+border-left:5px solid #3366ff;
+margin:15px 0;
+font-weight:bold;
+text-align:center;
+}
+
+footer{
+margin-top:40px;
+text-align:center;
+color:#666;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="https://jarudev.github.io/itcts4z/" target="_blank">VOLVER</a>
+</header>
+
+<div class="container">
+
+<img src="https://www.etitc.edu.co/uploads/images/products/5f18d9b668ef9220349297.svg" alt="ETITC" width="300">
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fundamentos de Electrónica</title>
+</head>
+<body>
+
+<h2>Bloque 1: Fundamentos</h2>
+
+<h3>Electricidad</h3>
+
+<h4>¿Qué es?</h4>
+<p>
+Es una forma de energía que aparece cuando las cargas eléctricas están en reposo o en movimiento.
+</p>
+
+<h4>Unidad de Medida</h4>
+<p>
+Depende del fenómeno: amperios (A), voltios (V), joules (J).
+</p>
+
+<h4>¿Tiene símbolo o forma de representación?</h4>
+<p>
+Se representa como I (corriente), V (voltaje), Q (carga).
+</p>
+
+<h4>Ejemplo en la vida real</h4>
+<p>
+Un cargador de celular suministrando energía.
+</p>
+
+<h4>Relación con la vida cotidiana</h4>
+<p>
+Todos los dispositivos eléctricos dependen de ella.
+</p>
+
+<h3>Electrón</h3>
+
+<h4>¿Qué es?</h4>
+<p>
+Partícula con carga negativa que forma parte del átomo.
+</p>
+
+<h4>Unidad de Medida</h4>
+<p>
+Su carga se mide en coulomb (C).
+</p>
+
+<h4>¿Tiene símbolo o forma de representación?</h4>
+<p>
+Se representa como e⁻.
+</p>
+
+<h4>Ejemplo en la vida real</h4>
+<p>
+Descargas eléctricas al tocar metal.
+</p>
+
+<h4>Relación con la vida cotidiana</h4>
+<p>
+Sin electrones no existiría la electricidad.
+</p>
+
+<h3>Movimiento de electrones</h3>
+
+<h4>¿Qué es?</h4>
+<p>
+Es el flujo de electrones en un conductor.
+</p>
+
+<h4>Unidad de Medida</h4>
+<p>
+Amperio (A).
+</p>
+
+<h4>¿Tiene símbolo o forma de representación?</h4>
+<p>
+Se representa como corriente (I).
+</p>
+
+<h4>Ejemplo en la vida real</h4>
+<p>
+Encender una lámpara.
+</p>
+
+<h4>Relación con la vida cotidiana</h4>
+<p>
+Permite el funcionamiento de electrodomésticos.
+</p>
+
+<h2>Bloque 2: Flujo eléctrico</h2>
+
+<h3>Sentido Real</h3>
+
+<h4>¿Qué es?</h4>
+<p>
+Es el movimiento real de electrones del polo negativo al positivo.
+</p>
+
+<h4>Unidad de Medida</h4>
+<p>
+Amperio (A).
+</p>
+
+<h4>¿Tiene símbolo o forma de representación?</h4>
+<p>
+Se representa con flechas del negativo al positivo.
+</p>
+
+<h4>Ejemplo en la vida real</h4>
+<p>
+Flujo de electrones en un cable.
+</p>
+
+<h4>Relación con la vida cotidiana</h4>
+<p>
+Ocurre en todos los circuitos eléctricos.
+</p>
+
+<h3>Sentido Convencional</h3>
+
+<h4>¿Qué es?</h4>
+<p>
+Es la representación de corriente del positivo al negativo.
+</p>
+
+<h4>Unidad de Medida</h4>
+<p>
+Amperio (A).
+</p>
+
+<h4>¿Tiene símbolo o forma de representación?</h4>
+<p>
+Flechas del positivo al negativo.
+</p>
+
+<h4>Ejemplo en la vida real</h4>
+<p>
+Diagramas eléctricos.
+</p>
+
+<h4>Relación con la vida cotidiana</h4>
+<p>
+Se usa en análisis de circuitos.
+</p>
+
+<h2>Bloque 3: Circuitos</h2>
+
+<h3>Ánodo</h3>
+<p>Terminal por donde entra la corriente convencional.</p>
+
+<h3>Cátodo</h3>
+<p>Terminal por donde sale la corriente convencional.</p>
+
+<h3>Fuente de alimentación</h3>
+<p>Dispositivo que suministra energía eléctrica.</p>
+
+<h3>Receptor o carga eléctrica</h3>
+<p>Elemento que consume energía.</p>
+
+<h3>Circuito eléctrico</h3>
+<p>Conjunto de elementos que permiten el flujo de corriente.</p>
+
+<h2>Bloque 4: Comprensión conceptual</h2>
+
+<h3>Diferencia entre electricidad y electrónica</h3>
+<p>
+La electricidad es el flujo de energía; la electrónica controla ese flujo.
+</p>
+
+<h2>Bloque 5: Magnitudes eléctricas</h2>
+
+<h3>Carga eléctrica</h3>
+<p>Propiedad de la materia medida en coulomb (C).</p>
+
+<h3>Corriente eléctrica</h3>
+<p>Flujo de electrones medido en amperios (A).</p>
+
+<h3>Voltaje</h3>
+<p>Diferencia de potencial medida en voltios (V).</p>
+
+<h3>Resistencia</h3>
+<p>Oposición al paso de corriente medida en ohmios (Ω).</p>
+
+<h3>Potencia eléctrica</h3>
+<p>Energía consumida por tiempo medida en vatios (W).</p>
+
+<footer>
+<p>Página creada para investigación académica</p>
+</footer>
+
+</body>
+</html>
+
+  
+  
