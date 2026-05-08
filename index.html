@@ -4,81 +4,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fundamentos de Electrónica Analógica</title>
+
+<title>Fundamentos de Electrónica</title>
 
 <style>
 
-body{
-font-family: Arial, sans-serif;
+*{
 margin:0;
-background-color:#f4f4f4;
-line-height:1.6;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-/* barra superior */
+body{
+font-family:Arial, sans-serif;
+background:#0d1117;
+color:#e6edf3;
+display:flex;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* ========================= */
+/* EFECTO LUZ VERDE MOUSE */
+/* ========================= */
+
+.glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle, rgba(0,255,120,0.18) 0%, transparent 70%);
+pointer-events:none;
+border-radius:50%;
+transform:translate(-50%, -50%);
+z-index:0;
+}
+
+/* ========================= */
+/* SIDEBAR */
+/* ========================= */
+
+.sidebar{
+width:260px;
+height:100vh;
+position:fixed;
+left:0;
+top:0;
+background:#111827;
+padding:30px 20px;
+overflow-y:auto;
+border-right:1px solid #1f2937;
+}
+
+.sidebar h2{
+color:#00ff88;
+margin-bottom:20px;
+font-size:22px;
+}
+
+.sidebar a{
+display:block;
+color:#cbd5e1;
+text-decoration:none;
+margin:10px 0;
+transition:0.3s;
+font-size:15px;
+}
+
+.sidebar a:hover{
+color:#00ff88;
+transform:translateX(5px);
+}
+
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
+
+.main{
+margin-left:260px;
+width:calc(100% - 260px);
+padding:40px;
+position:relative;
+z-index:1;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+background:#161b22;
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+border:1px solid #1f2937;
+}
+
 header{
-background:white;
-padding:15px 40px;
 display:flex;
 justify-content:flex-end;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
+margin-bottom:30px;
 }
 
 header a{
+background:#00ff88;
+color:black;
+padding:10px 20px;
+border-radius:10px;
 text-decoration:none;
-color:#3366ff;
 font-weight:bold;
-font-size:16px;
+transition:0.3s;
 }
 
 header a:hover{
-text-decoration:underline;
-}
-
-/* contenedor principal */
-.container{
-max-width:900px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-h1{
-text-align:center;
-color:#333;
-}
-
-h2{
-color:#444;
-margin-top:30px;
-}
-
-p{
-text-align:justify;
+transform:scale(1.05);
+box-shadow:0 0 15px #00ff88;
 }
 
 img{
 display:block;
 margin:auto;
-margin-top:15px;
+margin-bottom:30px;
 }
 
-.formula{
-background:#eef;
-padding:10px;
-border-left:5px solid #3366ff;
-margin:15px 0;
-font-weight:bold;
+h1{
 text-align:center;
+margin-bottom:40px;
+color:#00ff88;
+font-size:40px;
+}
+
+h2{
+margin-top:50px;
+margin-bottom:20px;
+color:#00ff88;
+border-bottom:2px solid #00ff88;
+padding-bottom:10px;
+}
+
+h3{
+margin-top:30px;
+color:#7ee787;
+}
+
+h4{
+margin-top:15px;
+color:#58a6ff;
+}
+
+p{
+margin-top:10px;
+color:#d1d5db;
+text-align:justify;
+}
+
+/* ========================= */
+/* ANIMACIONES */
+/* ========================= */
+
+.container *{
+animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ========================= */
+/* CIRCUITO */
+/* ========================= */
+
+.circuit-section{
+margin-top:80px;
+padding:40px;
+background:#0f172a;
+border-radius:20px;
+border:1px solid #1e293b;
+}
+
+.circuit-title{
+text-align:center;
+font-size:30px;
+margin-bottom:30px;
+color:#00ff88;
+}
+
+svg{
+width:100%;
+max-width:900px;
+display:block;
+margin:auto;
+}
+
+.real-flow{
+stroke:#3b82f6;
+stroke-width:6;
+fill:none;
+stroke-dasharray:15;
+animation:moveBlue 1s linear infinite;
+}
+
+.conv-flow{
+stroke:#ef4444;
+stroke-width:6;
+fill:none;
+stroke-dasharray:15;
+animation:moveRed 1s linear infinite;
+}
+
+@keyframes moveBlue{
+from{
+stroke-dashoffset:0;
+}
+to{
+stroke-dashoffset:-30;
+}
+}
+
+@keyframes moveRed{
+from{
+stroke-dashoffset:0;
+}
+to{
+stroke-dashoffset:30;
+}
+}
+
+.bulb{
+animation:glowBulb 1s infinite alternate;
+}
+
+@keyframes glowBulb{
+from{
+filter:drop-shadow(0 0 5px yellow);
+}
+to{
+filter:drop-shadow(0 0 20px yellow);
+}
+}
+
+.explanation{
+margin-top:30px;
+background:#111827;
+padding:25px;
+border-radius:15px;
 }
 
 footer{
-margin-top:40px;
+margin-top:50px;
 text-align:center;
-color:#666;
-font-size:14px;
+color:#9ca3af;
 }
 
 </style>
@@ -86,208 +266,197 @@ font-size:14px;
 
 <body>
 
+<div class="glow"></div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>ÍNDICE</h2>
+
+<a href="#b1">Bloque 1</a>
+<a href="#b2">Bloque 2</a>
+<a href="#b3">Bloque 3</a>
+<a href="#b4">Bloque 4</a>
+<a href="#b5">Bloque 5</a>
+<a href="#circuito">Circuito Animado</a>
+
+</div>
+
+<!-- CONTENIDO -->
+
+<div class="main">
+
+<div class="container">
+
 <header>
 <a href="https://jarudev.github.io/itcts4z/" target="_blank">VOLVER</a>
 </header>
 
-<div class="container">
+<img src="https://www.etitc.edu.co/uploads/images/products/5f18d9b668ef9220349297.svg" width="300">
 
-<img src="https://www.etitc.edu.co/uploads/images/products/5f18d9b668ef9220349297.svg" alt="ETITC" width="300">
+<h1>Fundamentos de Electrónica</h1>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Fundamentos de Electrónica</title>
-</head>
-<body>
-
-<h2>Bloque 1: Fundamentos</h2>
+<h2 id="b1">Bloque 1: Fundamentos</h2>
 
 <h3>Electricidad</h3>
-
-<h4>¿Qué es?</h4>
 <p>
-Es una forma de energía que aparece cuando las cargas eléctricas están en reposo o en movimiento.
-</p>
-
-<h4>Unidad de Medida</h4>
-<p>
-Depende del fenómeno: amperios (A), voltios (V), joules (J).
-</p>
-
-<h4>¿Tiene símbolo o forma de representación?</h4>
-<p>
-Se representa como I (corriente), V (voltaje), Q (carga).
-</p>
-
-<h4>Ejemplo en la vida real</h4>
-<p>
-Un cargador de celular suministrando energía.
-</p>
-
-<h4>Relación con la vida cotidiana</h4>
-<p>
-Todos los dispositivos eléctricos dependen de ella.
+Es una forma de energía producida por el movimiento de cargas eléctricas.
 </p>
 
 <h3>Electrón</h3>
-
-<h4>¿Qué es?</h4>
 <p>
-Partícula con carga negativa que forma parte del átomo.
-</p>
-
-<h4>Unidad de Medida</h4>
-<p>
-Su carga se mide en coulomb (C).
-</p>
-
-<h4>¿Tiene símbolo o forma de representación?</h4>
-<p>
-Se representa como e⁻.
-</p>
-
-<h4>Ejemplo en la vida real</h4>
-<p>
-Descargas eléctricas al tocar metal.
-</p>
-
-<h4>Relación con la vida cotidiana</h4>
-<p>
-Sin electrones no existiría la electricidad.
+Partícula subatómica con carga negativa.
 </p>
 
 <h3>Movimiento de electrones</h3>
-
-<h4>¿Qué es?</h4>
 <p>
-Es el flujo de electrones en un conductor.
+Es el flujo de electrones dentro de un conductor.
 </p>
 
-<h4>Unidad de Medida</h4>
-<p>
-Amperio (A).
-</p>
-
-<h4>¿Tiene símbolo o forma de representación?</h4>
-<p>
-Se representa como corriente (I).
-</p>
-
-<h4>Ejemplo en la vida real</h4>
-<p>
-Encender una lámpara.
-</p>
-
-<h4>Relación con la vida cotidiana</h4>
-<p>
-Permite el funcionamiento de electrodomésticos.
-</p>
-
-<h2>Bloque 2: Flujo eléctrico</h2>
+<h2 id="b2">Bloque 2: Flujo eléctrico</h2>
 
 <h3>Sentido Real</h3>
-
-<h4>¿Qué es?</h4>
 <p>
-Es el movimiento real de electrones del polo negativo al positivo.
-</p>
-
-<h4>Unidad de Medida</h4>
-<p>
-Amperio (A).
-</p>
-
-<h4>¿Tiene símbolo o forma de representación?</h4>
-<p>
-Se representa con flechas del negativo al positivo.
-</p>
-
-<h4>Ejemplo en la vida real</h4>
-<p>
-Flujo de electrones en un cable.
-</p>
-
-<h4>Relación con la vida cotidiana</h4>
-<p>
-Ocurre en todos los circuitos eléctricos.
+Los electrones viajan del polo negativo al positivo.
 </p>
 
 <h3>Sentido Convencional</h3>
-
-<h4>¿Qué es?</h4>
 <p>
-Es la representación de corriente del positivo al negativo.
+La corriente convencional se representa del positivo al negativo.
 </p>
 
-<h4>Unidad de Medida</h4>
-<p>
-Amperio (A).
-</p>
-
-<h4>¿Tiene símbolo o forma de representación?</h4>
-<p>
-Flechas del positivo al negativo.
-</p>
-
-<h4>Ejemplo en la vida real</h4>
-<p>
-Diagramas eléctricos.
-</p>
-
-<h4>Relación con la vida cotidiana</h4>
-<p>
-Se usa en análisis de circuitos.
-</p>
-
-<h2>Bloque 3: Circuitos</h2>
-
-<h3>Ánodo</h3>
-<p>Terminal por donde entra la corriente convencional.</p>
-
-<h3>Cátodo</h3>
-<p>Terminal por donde sale la corriente convencional.</p>
+<h2 id="b3">Bloque 3: Circuitos</h2>
 
 <h3>Fuente de alimentación</h3>
-<p>Dispositivo que suministra energía eléctrica.</p>
-
-<h3>Receptor o carga eléctrica</h3>
-<p>Elemento que consume energía.</p>
-
-<h3>Circuito eléctrico</h3>
-<p>Conjunto de elementos que permiten el flujo de corriente.</p>
-
-<h2>Bloque 4: Comprensión conceptual</h2>
-
-<h3>Diferencia entre electricidad y electrónica</h3>
 <p>
-La electricidad es el flujo de energía; la electrónica controla ese flujo.
+Elemento que entrega energía eléctrica.
 </p>
 
-<h2>Bloque 5: Magnitudes eléctricas</h2>
+<h3>Circuito eléctrico</h3>
+<p>
+Conjunto de elementos conectados para permitir corriente.
+</p>
 
-<h3>Carga eléctrica</h3>
-<p>Propiedad de la materia medida en coulomb (C).</p>
+<h2 id="b4">Bloque 4: Comprensión conceptual</h2>
 
-<h3>Corriente eléctrica</h3>
-<p>Flujo de electrones medido en amperios (A).</p>
+<h3>Diferencia entre electricidad y electrónica</h3>
+
+<p>
+La electricidad transporta energía; la electrónica controla ese transporte.
+</p>
+
+<h2 id="b5">Bloque 5: Magnitudes eléctricas</h2>
 
 <h3>Voltaje</h3>
-<p>Diferencia de potencial medida en voltios (V).</p>
+<p>
+Diferencia de potencial eléctrico.
+</p>
+
+<h3>Corriente</h3>
+<p>
+Cantidad de carga que circula.
+</p>
 
 <h3>Resistencia</h3>
-<p>Oposición al paso de corriente medida en ohmios (Ω).</p>
+<p>
+Oposición al flujo eléctrico.
+</p>
 
-<h3>Potencia eléctrica</h3>
-<p>Energía consumida por tiempo medida en vatios (W).</p>
+<!-- CIRCUITO -->
+
+<div class="circuit-section" id="circuito">
+
+<h2 class="circuit-title">Circuito Eléctrico Animado</h2>
+
+<svg viewBox="0 0 900 400">
+
+<!-- Cable -->
+<rect x="150" y="180" width="600" height="10" fill="#999"/>
+
+<!-- Pila -->
+<rect x="120" y="130" width="20" height="120" fill="#ccc"/>
+<rect x="90" y="150" width="20" height="80" fill="#888"/>
+
+<!-- Bombillo -->
+<circle cx="750" cy="185" r="40" fill="yellow" class="bulb"/>
+
+<!-- Sentido real -->
+<path class="real-flow"
+d="M 700 150 L 200 150" />
+
+<!-- Sentido convencional -->
+<path class="conv-flow"
+d="M 200 230 L 700 230" />
+
+<!-- Flechas -->
+<polygon points="200,145 220,150 200,155" fill="#3b82f6"/>
+<polygon points="700,225 680,230 700,235" fill="#ef4444"/>
+
+<!-- Textos -->
+<text x="180" y="120" fill="#3b82f6" font-size="22">
+Sentido Real
+</text>
+
+<text x="550" y="280" fill="#ef4444" font-size="22">
+Sentido Convencional
+</text>
+
+<text x="80" y="300" fill="#00ff88" font-size="20">
+Mayor energía (Voltaje alto)
+</text>
+
+<text x="650" y="300" fill="#00ff88" font-size="20">
+Menor energía
+</text>
+
+</svg>
+
+<div class="explanation">
+
+<p>
+El sentido real representa el movimiento físico de los electrones desde el polo negativo hacia el positivo.
+</p>
+
+<p>
+El sentido convencional fue definido históricamente antes de descubrirse el electrón, por eso se representa en dirección opuesta.
+</p>
+
+<p>
+Aunque ambos sentidos son contrarios, el bombillo enciende igual porque la transferencia de energía ocurre independientemente de la convención utilizada para analizar el circuito.
+</p>
+
+<p>
+La mayor energía se encuentra cerca del terminal positivo de la pila debido al mayor potencial eléctrico (voltaje). La menor energía se encuentra hacia el terminal negativo.
+</p>
+
+<p>
+La corriente eléctrica depende de la diferencia de potencial y del movimiento de carga dentro del circuito cerrado.
+</p>
+
+</div>
+
+</div>
 
 <footer>
-<p>Página creada para investigación académica</p>
+Página creada para investigación académica
 </footer>
+
+</div>
+</div>
+
+<script>
+
+const glow = document.querySelector('.glow');
+
+document.addEventListener('mousemove', (e) => {
+
+glow.style.left = e.clientX + 'px';
+glow.style.top = e.clientY + 'px';
+
+});
+
+</script>
 
 </body>
 </html>
-
-  
-  
